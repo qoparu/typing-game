@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🌸 Kawaii Typing Game 🌸</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="logo.png">
@@ -8,36 +10,40 @@
 </head>
 <body>
     <div class="container">
-        <h1>🍥 Typing Game! 🍬</h1>
-        <div class="instruction-bubble">
-            ✨ Practice your typing skills with Sherlock Holmes quotes!<br>
-            Click the Start button to begin! 🎀
-        </div>
+        <header class="game-header">
+            <h1>🍥 Typing Game! 🍬</h1>
+            <div class="instruction-bubble" role="alert">
+                ✨ Practice your typing skills with Sherlock Holmes quotes!<br>
+                Click the Start button to begin! 🎀
+            </div>
+        </header>
 
-        <!-- Перенесите quote-box внутрь контейнера -->
-        <div id="quote" class="quote-box"></div>
+        <main class="game-area">
+            <div id="quote" class="quote-box" aria-live="polite"></div>
 
-        <div class="game-controls">
-            <input type="text" 
-                   aria-label="current word" 
-                   id="typed-value" 
-                   placeholder="Start typing here... 🖋️">
-        
-            <button id="start">
-                🎮 Start Game 🌸
-            </button>
-        </div>
+            <div class="game-controls">
+                <label for="typed-value" class="sr-only">Type the text here</label>
+                <input type="text" 
+                       id="typed-value" 
+                       class="typing-input"
+                       placeholder="Start typing here... 🖋️"
+                       disabled>
+            
+                <button id="start" class="game-button" aria-label="Start game">
+                    🎮 Start Game 🌸
+                </button>
+            </div>
+        </main>
 
-        <!-- Декоративные элементы -->
-        <div class="decorations">
-            <div style="top: 10%; left: 5%">🌟</div>
-            <div style="top: 30%; right: 15%">💮</div>
-            <div style="bottom: 20%; left: 20%">🎀</div>
-              <div style="top: 10%; left: 5%">🌟</div>
-            <div style="top: 30%; right: 15%">💮</div>
-            <div style="bottom: 20%; left: 20%">🎀</div>
+        <!-- Decorative elements with aria-hidden -->
+        <div class="decorations" aria-hidden="true">
+            <div class="decoration-star">🌟</div>
+            <div class="decoration-flower">💮</div>
+            <div class="decoration-ribbon">🎀</div>
+            <div class="decoration-sparkle">✨</div>
         </div>
     </div>
 
     <script src="script.js"></script>
 </body>
+</html>
